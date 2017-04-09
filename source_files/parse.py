@@ -15,13 +15,14 @@ def parse(raw_file, delimiter):
 	parsed_data = []
 
 	# Skip over the first line of the file for the headers
-	fields = csv_data.next()
+	fields = next(csv_data)
 
 	# Iterate over each row of the csv file, zip together field -> value
 	for row in csv_data:
 		parsed_data.append(dict(zip(fields, row)))
 
 	# Close the CSV file
+	opened_file.close()
 
 	return parsed_data
 
@@ -32,5 +33,5 @@ def main():
 	# Lets see what the data looks like
 	print(new_data)
 
-if __name__ = "__main__":
+if __name__ == "__main__":
 	main()
