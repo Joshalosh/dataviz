@@ -21,37 +21,25 @@ MY_FILE = "../data/sample_sfpd_incident_all.csv"
 
 def visualize_days():
     """Visualize data by day of week"""
-    data_file = parse(MY_FILE, ",")
-    # Returns a dict where it sums the total values for each key.
-    # In this case, the keys are the DaysOfWeek, and the values are
-    # a count of incidents.
-    counter = Counter(item["DayOfWeek"] for item in data_file)
+    
+    # Grab our parsed data that we parsed earlier
 
-    # Separate out the counter to order it correctly when plotting.
-    data_list = [
-                  counter["Monday"],
-                  counter["Tuesday"],
-                  counter["Wednesday"],
-                  counter["Thursday"],
-                  counter["Friday"],
-                  counter["Saturday"],
-                  counter["Sunday"]
-                ]
-    day_tuple = tuple(["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"])
+    # Make a new varuable, 'counter', from iterating through each
+    # line of data in the parsed data, and count how many incidents
+    # happen on each day
 
-    # Assign the data to a plot
-    plt.plot(data_list)
+    # Seperate the x-axis data (the days of the week) from the
+    # 'counter' variable from the y-axis data (the number of
+    # incidents for each day)
 
-    # Assign labels to the plot from day_list
-    plt.xticks(range(len(day_tuple)), day_tuple)
+    # With that y-axis data, assign it to a matplotlib plot instance
 
-    # Save the graph!
-    # If you look at new-coder/dataviz/tutorial_source, you should see
-    # the PNG file, "Days.png".  This is our graph!
-    plt.savefig("Days.png")
+    # Create the amount of ticks needed for our x-axis, and assign
+    # the labels
 
-    # Close figure
-    plt.clf()
+    # Save the plot!
+
+    # Close plot file
 
 
 def visualize_type():

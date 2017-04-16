@@ -37,7 +37,6 @@ def copy_data(parsed_data):
 		data_copy.write(info['Descript'])
 		data_copy.write('\n')
 
-
 	# Close file
 	data_copy.close()
 
