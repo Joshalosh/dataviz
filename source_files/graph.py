@@ -23,7 +23,7 @@ def visualize_days():
     """Visualize data by day of week"""
     
     # Grab our parsed data that we parsed earlier
-    data_file = parse('MY_FILE', ",")
+    data_file = parse(MY_FILE, ",")
 
     # Make a new variable, 'counter', from iterating through each
     # line of data in the parsed data, and count how many incidents

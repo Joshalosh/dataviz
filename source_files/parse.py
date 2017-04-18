@@ -26,7 +26,7 @@ def parse(raw_file, delimiter):
 	opened_file.close()
 
 	return parsed_data
-
+"""
 def copy_data(parsed_data):
 
 	# Open file in write mode
@@ -39,11 +39,11 @@ def copy_data(parsed_data):
 
 	# Close file
 	data_copy.close()
-
+"""
 def main():
 	# Call our parse function and give it the needed parameters
 	new_data = parse(MY_FILE, ",")
-	copy_data(new_data)
+	#copy_data(new_data)
 
 	# Lets see what the data looks like
 	print(new_data)
