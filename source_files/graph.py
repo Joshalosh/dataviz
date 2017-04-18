@@ -19,7 +19,7 @@ import numpy as np
 MY_FILE = "../data/sample_sfpd_incident_all.csv"
 
 
-def visualize_days():
+def visualise_days():
     """Visualize data by day of week"""
     
     # Grab our parsed data that we parsed earlier
@@ -57,6 +57,37 @@ def visualize_days():
     # Close plot file
     plt.clf()
 
+def visualise_type():
+    """Visualise data by category in bar graph"""
+
+    # Grab our parsed data
+    data_file = parse(MY_FILE, ',')
+
+    # Same as before, this returns a dict where it sums the total
+    # incidents per Category
+    counter = Counter(item['Category'] for item in data_file)
+
+    # Set the labels which are based on the keys of our counter.
+    # Since order doesn't matter, we can just use counter.keys()
+    labels = tuple(counter.keys())
+
+    # Set exactly where the labels hit the x-axis
+    xlocations = np.arange(len(labels)) + 0.5
+    
+    # Width of each bar that will be plotted
+
+    # Assign data to bar plot (similar to plt.plot()!)
+
+    # Assign labels and tick location to x-axis
+
+    # Give some more room so the x-axis labels aren't cut off in the
+    # graph
+
+    # Make the overall graph/figure larger
+
+    # Save the graph!
+
+    # Close plot figure
 
 def main():
     visualize_days()
