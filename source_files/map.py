@@ -51,7 +51,7 @@ def create_map(data_file):
                                 'descripton': line['Descript'],
                                 'date': line['Date']}
         data['geometry'] ={'type': 'Point',
-                            'coordinates': line['X'], line['Y']}
+                            'coordinates': (line['X'], line['Y'])}
 
     	# Add data dictionary to our item_list
         item_list.append(data)
@@ -60,9 +60,13 @@ def create_map(data_file):
     # dictionary. setdefault creates a key called 'features' that
     # has a value type of an empty list. With each iteration, we
     # are appending our point to that list
+    for point in item_list:
+        geo_map.setdefault('features', []).append(point)
 
     # Now that all data is parsed in GeoJSON write to a file so we
     # can upload it to gist.github.com
+    with open('file_sf.geojson', 'w') as f:
+        f.write(geojson.dumps(str(geo_map)))
 
 
 def main():
